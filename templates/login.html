@@ -1,0 +1,32 @@
+<!-- templates/login.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script>
+        function validateForm() {
+            var username = document.forms["loginForm"]["username"].value;
+            var password = document.forms["loginForm"]["password"].value;
+            if (username === "" || password === "") {
+                alert("Brukernavn og passord må fylles ut.");
+                return false;
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <form name="loginForm" action="/login" method="POST" onsubmit="return validateForm()">
+            <h2>Logg inn</h2>
+            <label for="username">Brukernavn:</label>
+            <input type="text" id="username" name="username" required><br>
+            <label for="password">Passord:</label>
+            <input type="password" id="password" name="password" required><br>
+            <input type="submit" value="Logg inn">
+        </form>
+    </div>
+</body>
+</html>
